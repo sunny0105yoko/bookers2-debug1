@@ -22,12 +22,12 @@
   <% unless user == current_user %>
         <% if current_user.following?(user) %>
           <td><%= link_to user_relationships_path(user.id), method: :delete do %>
-              <button class="btn btn-outline-secondary btn-block" >フォローを外す</button>
+              <button class="btn btn-info" >フォロー外す</button>
           <% end %>
           </td>
           <% else %>
           <td><%= link_to user_relationships_path(user.id), method: :post do %>
-              <button class="btn btn-outline-secondary btn-block" >フォローする</button>
+              <button class="btn btn-success" >フォローする</button>
           <% end %>
         <% end %>
   <% end %>
