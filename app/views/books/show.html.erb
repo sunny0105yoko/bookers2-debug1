@@ -17,8 +17,6 @@
           </td>
           <td><%= link_to @book.title, book_path(@book.id) %></td>
           <td><%= @book.body %></td>
-
-
           <% if @book.user == current_user %>
           <td><%= link_to 'Edit', edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
           <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
@@ -33,14 +31,13 @@
                 ♡<%= @book.favorites.count %>
               <% end %>
             <% end %>
-            </td>
             <td>コメント数:<%= @book.book_comments.count %></td>
           </tr>
         </table>
-        <table>
-              <%= render 'book_comments/comments', book: @book%>
-        </table>
-              <%= form_with model: [@book, @book_comment] do |f| %>
+        <tbody id="comments_index">
+              <%= render 'book_comments/comments', book: @book %>
+        </tbody>
+              <%= form_with (model: [@book, @book_comment],local: true) do |f| %>
               <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに",class: "w-100" %>
               <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
               <% end %>
