@@ -19,8 +19,9 @@ class User < ApplicationRecord
   validates :introduction, length: {maximum: 50 }
   
   #DM画面で使う
-  has_many :entries, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  has_many :user_rooms
+  has_many :chats
+  has_many :rooms, through: :user_rooms
 
   
   
