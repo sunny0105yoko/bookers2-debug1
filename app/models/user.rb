@@ -22,6 +22,9 @@ class User < ApplicationRecord
   has_many :user_rooms
   has_many :chats
   has_many :rooms, through: :user_rooms
+  
+  #閲覧数をカウントする
+  has_many :view_counts, dependent: :destroy
 
   
   
