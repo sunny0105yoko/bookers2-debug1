@@ -57,5 +57,5 @@ class User < ApplicationRecord
     else
       @user = User.all
     end
-    end
-  end
+   end
+end
