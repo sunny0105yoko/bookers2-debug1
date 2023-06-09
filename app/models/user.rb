@@ -25,6 +25,9 @@ class User < ApplicationRecord
   
   #閲覧数をカウントする
   has_many :view_counts, dependent: :destroy
+  
+  #グループ作成
+  has_many :group_users, dependent: :destroy
 
   
   

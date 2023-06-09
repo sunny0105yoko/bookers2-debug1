@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'groups/index'
+  get 'groups/show'
+  get 'groups/new'
+  get 'groups/create'
+  get 'groups/edit'
+  get 'groups/update'
   get 'rooms/messages'
   get 'searches/search_result'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -19,6 +25,7 @@ Rails.application.routes.draw do
   
   get"search" => "searches#search"
   resources :chats, only: [:show, :create]
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
